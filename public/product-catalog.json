@@ -1,0 +1,54 @@
+[
+  {
+    "id": "prod-002",
+    "category": "lumber",
+    "name": "Premium Oak Beam",
+    "options": {
+      "lengthsAvailable": [3, 5],
+      "gradesAvailable": ["Kiln Dried", "Untreated"]
+    }
+  },
+  {
+    "id": "prod-003",
+    "category": "lumber",
+    "name": "Exterior Cedar Board",
+    "options": {
+      "lengthsAvailable": [2.5, 4, 5.5],
+      "gradesAvailable": ["Treated", "Untreated"]
+    }
+  },
+  {
+    "id": "prod-046",
+    "category": "concrete",
+    "name": "General Purpose Concrete (C20)",
+    "options": {
+      "additives": ["Retarder", "Plasticizer"]
+    }
+  },
+  {
+    "id": "prod-047",
+    "category": "concrete",
+    "name": "High-strength Concrete (C30)",
+    "options": {
+      "additives": ["Fibers", "Plasticizer", "Steel bars"]
+    }
+  },
+  {
+    "id": "prod-121",
+    "category": "sand",
+    "name": "Fill-in sand",
+    "options": {
+      "grainSize": [0.1, 0.3, 0.5, 1],
+      "source": ["RIVER", "QUARRY"]
+    }
+  },
+  {
+    "id": "prod-122",
+    "category": "sand",
+    "name": "River sand",
+    "options": {
+      "grainSize": [10, 30, 40],
+      "source": ["RIVER"]
+    }
+  }
+]
