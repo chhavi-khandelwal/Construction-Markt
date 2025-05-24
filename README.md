@@ -35,6 +35,7 @@ npm run test
 - All products in the .json file are available and must be listed.
 - Product categories will be received via API call from BE to display in filters
 - Cart does not show any amount/cost right now.
+- Each time a product is added to cart is considered a new item(even if it is same name product)
 
 # Further Improvements
 
