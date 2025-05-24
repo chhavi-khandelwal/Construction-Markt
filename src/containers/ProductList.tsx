@@ -40,12 +40,12 @@ const ProductList = () => {
         <Loader />
       ) : filteredProducts.length ? (
         <div className="p-8 flex flex-col flex-1 overflow-y-auto">
-          <div className="flex flex-wrap gap-8 items-start justify-center md:justify-start">
+          <div className="flex flex-wrap gap-8 items-start justify-center">
             {paginated.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}
           </div>
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center mt-8">
             <Pagination
               count={pageCount}
               page={activePage}
