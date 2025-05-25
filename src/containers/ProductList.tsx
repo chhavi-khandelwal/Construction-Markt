@@ -1,38 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { Pagination } from '@mui/material';
-import { useProductStore } from '../stores/productStore';
-import formatProducts from '../utils/formatProducts';
-import { fetchProducts } from '../api/api';
 import Loader from '../components/Loader';
+import useProducts from '../hooks/useProducts';
 
 const ITEMS_PER_PAGE = 6;
+const FIRST_PAGE = 1;
 
 const ProductList = () => {
-  const {
-    filtered: filteredProducts,
-    setProducts,
-    filterProducts,
-  } = useProductStore();
+  const { filteredProducts, loading } = useProducts();
 
-  const [activePage, setActivePage] = useState(1);
-  const [loading, setLoading] = useState(true);
-
+  const [activePage, setActivePage] = useState(FIRST_PAGE);
   const startIdx = (activePage - 1) * ITEMS_PER_PAGE;
   const paginated = filteredProducts.slice(startIdx, startIdx + ITEMS_PER_PAGE);
   const pageCount = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-
-  useEffect(() => {
-    setLoading(true);
-    fetchProducts()
-      .then((data) => {
-        const products = formatProducts(data);
-        setProducts(products);
-        filterProducts(products);
-      })
-      .catch(() => setLoading(false))
-      .finally(() => setLoading(false));
-  }, []);
 
   return (
     <>
@@ -55,7 +36,7 @@ const ProductList = () => {
           </div>
         </div>
       ) : (
-        <div className="p-8 text-center">No products available.</div>
+        <div className="p-8 text-center w-full">No products available.</div>
       )}
     </>
   );

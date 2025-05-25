@@ -47,6 +47,10 @@ const ProductCard = ({ product }: Props) => {
       options,
     });
 
+    resetValues();
+  };
+
+  const resetValues = () => {
     setExpanded(false);
     setOpen(true);
     setOptions({});

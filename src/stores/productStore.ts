@@ -29,7 +29,7 @@ interface ProductState {
   toggleCategory: (category: string) => void;
   query: string;
   setQuery: (q: string) => void;
-  filtered: Product[];
+  filteredProducts: Product[];
   filterProducts: (products?: Product[]) => void;
   setProducts: (products: Product[]) => void;
 }
@@ -46,20 +46,20 @@ export const useProductStore = create<ProductState>((set) => ({
         ? state.selectedCategories.filter((c) => c !== category)
         : [...state.selectedCategories, category],
     })),
-  filtered: [],
+  filteredProducts: [],
   filterProducts: (newProducts?: Product[]) =>
     set((state) => {
       const { selectedCategories: categories, query, products } = state;
       if (newProducts?.length) {
-        return { filtered: newProducts };
+        return { filteredProducts: newProducts };
       }
       if (!categories.length && !query) {
-        return { filtered: products };
+        return { filteredProducts: products };
       }
 
       //AND logic
       return {
-        filtered: state.products.filter((product) => {
+        filteredProducts: state.products.filter((product) => {
           return (
             (categories.length === 0 ||
               categories.includes(product.category)) &&
